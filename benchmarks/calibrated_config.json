@@ -1,0 +1,19 @@
+{
+  "model": "toy-transformer",
+  "n_layers": 2,
+  "batch_size": 1,
+  "hidden": 1024,
+  "heads": 16,
+  "seq_len": 1024,
+  "dtype": "float32",
+  "device": "NVIDIA A10G",
+  "pytorch": "2.13.0+cu130",
+  "profiles_activation_bytes": [46219264, 46219264],
+  "no_checkpoint_peak_allocated_bytes": 289961472,
+  "checkpoint_all_peak_allocated_bytes": 285739520,
+  "no_checkpoint_latency_ms_mean": 18.811737537384033,
+  "checkpoint_all_latency_ms_mean": 25.821590423583984,
+  "no_checkpoint_oom": false,
+  "checkpoint_all_oom": false,
+  "source": "modal_calibrate.py, Modal run ap-F3glWcfGphJa7GUwOi8m7X"
+}

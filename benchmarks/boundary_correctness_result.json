@@ -1,0 +1,10 @@
+{
+  "parameters": 1208598528,
+  "profiled_activation_total": 1108279296,
+  "correctness_checked": true,
+  "correctness_passed": true,
+  "max_output_diff": 0.0,
+  "max_grad_diff": 0.0,
+  "oom": false,
+  "peak_allocated_bytes": 9702605824
+}

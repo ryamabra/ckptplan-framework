@@ -1,0 +1,25 @@
+{
+  "model": "toy-transformer",
+  "parameters": 1208598528,
+  "layers": 24,
+  "hidden": 2048,
+  "heads": 16,
+  "seq_len": 512,
+  "batch_size": 1,
+  "dtype": "float32",
+  "gpu": "NVIDIA A10G",
+  "no_checkpoint": {"peak_allocated_bytes": 9702605824, "peak_reserved_bytes": 10538188800, "latency_ms_mean": 360.23671468098956, "oom": false},
+  "checkpoint_all": {"peak_allocated_bytes": 9702606848, "peak_reserved_bytes": 11125391360, "latency_ms_mean": 484.95513916015625, "correctness_passed": true, "oom": false},
+  "modal_run": "ap-q0fSu2p8Jzcnxn5BGsWpfv",
+  "notes": "At seq_len=512, checkpointing did not measurably reduce peak allocated memory because parameters plus gradients dominated. A follow-up seq_len=2048 run produced a measurable reduction while remaining under the A10G limit.",
+  "seq_len_2048_followup": {
+    "modal_run": "ap-SkOoP9BDUYsNV6m3N5ii3q",
+    "no_checkpoint_peak_allocated_bytes": 9896961536,
+    "checkpoint_all_peak_allocated_bytes": 9887221760,
+    "reduction_bytes": 9739776,
+    "no_checkpoint_latency_ms_mean": 1639.4434407552083,
+    "checkpoint_all_latency_ms_mean": 2200.8711751302085,
+    "both_fit": true,
+    "checkpoint_all_correctness_passed": true
+  }
+}

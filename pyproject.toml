@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ckptplan"
+version = "0.1.0rc1"
+description = "Profiles checkpointable PyTorch model blocks and selects a gradient-checkpointing plan for an activation-memory budget."
+readme = "README.md"
+requires-python = ">=3.10,<3.13"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+    { name = "Ryan Abraham" },
+]
+maintainers = [
+    { name = "Ryan Abraham" },
+]
+dependencies = [
+    "torch>=2.5.0,<2.14.0",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/ryamabra/ckptplan"
+Repository = "https://github.com/ryamabra/ckptplan"
+Issues = "https://github.com/ryamabra/ckptplan/issues"
+Changelog = "https://github.com/ryamabra/ckptplan/blob/main/CHANGELOG.md"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "build>=1.0",
+    "mypy>=1.10",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+markers = [
+    "slow: spawns subprocesses or otherwise takes seconds rather than milliseconds",
+]
+
+[tool.mypy]
+files = ["ckptplan"]
+ignore_missing_imports = true
+check_untyped_defs = true
+
+[tool.setuptools.packages.find]
+include = ["ckptplan*"]

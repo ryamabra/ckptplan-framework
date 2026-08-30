@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 220" role="img" aria-labelledby="title desc">
+  <title id="title">ckptplan</title>
+  <desc id="desc">Minimal checkpoint planning framework wordmark</desc>
+  <path d="M48 151V69h52M100 69v82h52M152 151V69h52" fill="none" stroke="#172033" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="40" y="43" width="30" height="30" rx="7" fill="#63e6ff"/>
+  <rect x="92" y="139" width="30" height="30" rx="7" fill="#f5f7fa"/>
+  <rect x="144" y="43" width="30" height="30" rx="7" fill="#8b7cff"/>
+  <circle cx="204" cy="151" r="7" fill="#63e6ff"/>
+  <text x="238" y="151" fill="#172033" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="104" font-weight="500" letter-spacing="-7">ckptplan</text>
+</svg>
