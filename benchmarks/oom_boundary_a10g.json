@@ -1,0 +1,12 @@
+{
+  "modal_no_checkpoint_run": "ap-4rQ6MgZTpNsQtNaS6qLjqJ",
+  "modal_checkpoint_all_run": "ap-ICDLa1b59GK4YVGTLswFSF",
+  "parameters": 1208598528,
+  "layers": 24,
+  "hidden": 2048,
+  "seq_len": 4096,
+  "batch_size": 4,
+  "no_checkpoint": {"oom": true, "peak_allocated_bytes": 0},
+  "checkpoint_all": {"oom": false, "peak_allocated_bytes": 12505498624, "peak_reserved_bytes": 13182697472, "correctness_passed": null},
+  "interpretation": "No-checkpoint OOMs while checkpoint-all completes measured trials. Exact-boundary correctness comparison is unavailable because the no-checkpoint reference cannot execute; checkpoint correctness passed at lower fitting configurations."
+}

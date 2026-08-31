@@ -1,0 +1,11 @@
+{
+  "modal_run": "ap-or0gbnkCJ1pWwY24PRvYkv",
+  "parameters": 1208598528,
+  "parameter_bytes": 4834394112,
+  "profiled_activation_bytes": 4433117184,
+  "no_checkpoint": {"checkpointed_blocks": 0, "forward_peak_allocated": 9737519104, "backward_peak_allocated": 9913738752},
+  "checkpoint_all": {"checkpointed_blocks": 24, "forward_peak_allocated": 9719382016, "backward_peak_allocated": 9903997952},
+  "forward_peak_reduction_bytes": 18137088,
+  "backward_peak_reduction_bytes": 9739776,
+  "diagnosis": "Checkpointing is active. The additive isolated activation estimate overstates whole-model peak savings because real peak memory depends on tensor lifetimes, allocator reuse, and fixed parameter/gradient memory."
+}

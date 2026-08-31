@@ -1,0 +1,137 @@
+{
+  "layers": 24,
+  "hidden": 2048,
+  "heads": 16,
+  "seq_len_start": 2048,
+  "start_batch_size": 1,
+  "growth_axis": "batch_size",
+  "growth_factor": 2.0,
+  "dtype": "float32",
+  "gpu_memory_budget_bytes": 12884901888,
+  "stopped_because_no_checkpoint_oom": true,
+  "steps": [
+    {
+      "batch_size": 1,
+      "seq_len": 2048,
+      "no_checkpoint": {
+        "oom": false,
+        "peak_allocated_bytes": 9896961536,
+        "peak_reserved_bytes": 10750001152,
+        "step_latency_ms_mean": 1629.9305908203125,
+        "throughput_samples_per_sec": 0.61352305774979,
+        "error_message": null
+      },
+      "dynamic_programming": {
+        "oom": false,
+        "peak_allocated_bytes": 9887220736,
+        "peak_reserved_bytes": 10227810304,
+        "step_latency_ms_mean": 1837.21552734375,
+        "throughput_samples_per_sec": 0.5443019532094866,
+        "selected_checkpoint_blocks": [
+          "layer0",
+          "layer2",
+          "layer4",
+          "layer7",
+          "layer9",
+          "layer12",
+          "layer17",
+          "layer20"
+        ],
+        "error_message": null
+      }
+    },
+    {
+      "batch_size": 2,
+      "seq_len": 2048,
+      "no_checkpoint": {
+        "oom": false,
+        "peak_allocated_bytes": 15697372160,
+        "peak_reserved_bytes": 15793651712,
+        "step_latency_ms_mean": 3273.2302734375,
+        "throughput_samples_per_sec": 0.6110172010292537,
+        "error_message": null
+      },
+      "dynamic_programming": {
+        "oom": false,
+        "peak_allocated_bytes": 10290021376,
+        "peak_reserved_bytes": 10999562240,
+        "step_latency_ms_mean": 4192.35732421875,
+        "throughput_samples_per_sec": 0.47705857238032584,
+        "selected_checkpoint_blocks": [
+          "layer0",
+          "layer1",
+          "layer3",
+          "layer5",
+          "layer6",
+          "layer7",
+          "layer8",
+          "layer9",
+          "layer10",
+          "layer12",
+          "layer13",
+          "layer15",
+          "layer16",
+          "layer17",
+          "layer18",
+          "layer19",
+          "layer20",
+          "layer22",
+          "layer23"
+        ],
+        "error_message": null
+      }
+    },
+    {
+      "batch_size": 4,
+      "seq_len": 2048,
+      "no_checkpoint": {
+        "oom": true,
+        "peak_allocated_bytes": 0,
+        "peak_reserved_bytes": 0,
+        "step_latency_ms_mean": 0.0,
+        "throughput_samples_per_sec": 0.0,
+        "error_message": "CUDA out of memory. Tried to allocate 256.00 MiB. GPU 0 has a total capacity of 22.06 GiB of which 51.44 MiB is free. Process 1 has 22.00 GiB memory in use. Of the allocated memory 21.66 GiB is allocated by PyTorch, and 68.25 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)"
+      },
+      "dynamic_programming": {
+        "oom": false,
+        "peak_allocated_bytes": 11767260160,
+        "peak_reserved_bytes": 12031361024,
+        "step_latency_ms_mean": 8594.5037109375,
+        "throughput_samples_per_sec": 0.4654137265552096,
+        "selected_checkpoint_blocks": [
+          "layer1",
+          "layer2",
+          "layer3",
+          "layer4",
+          "layer5",
+          "layer6",
+          "layer7",
+          "layer8",
+          "layer9",
+          "layer10",
+          "layer11",
+          "layer12",
+          "layer13",
+          "layer15",
+          "layer16",
+          "layer17",
+          "layer18",
+          "layer19",
+          "layer20",
+          "layer21",
+          "layer22",
+          "layer23"
+        ],
+        "error_message": null
+      }
+    }
+  ],
+  "largest_feasible_no_checkpoint": {
+    "batch_size": 2,
+    "seq_len": 2048
+  },
+  "largest_feasible_dynamic_programming": {
+    "batch_size": 4,
+    "seq_len": 2048
+  }
+}
