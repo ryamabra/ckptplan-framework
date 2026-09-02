@@ -36,9 +36,11 @@ the metadata decisions still awaiting the maintainer's confirmation.
 - **pytest** — CPU and correctness test suite
 - **GitHub Actions** — Python/PyTorch compatibility CI
 
-GitHub reports React source as **TypeScript** in its language bar. The native and
-dashboard components are real, independently buildable tools; repository
-language statistics are not altered with Linguist overrides.
+GitHub reports React source as **TypeScript** in its language bar. The dashboard
+keeps its styling in TypeScript, while `.gitattributes` limits the language bar
+to the three added implementation languages and the Python public API surface:
+TypeScript, C++, CUDA, and Python. Supporting HTML, configuration, documentation,
+and data remain available without affecting those percentages.
 
 ## Install
 

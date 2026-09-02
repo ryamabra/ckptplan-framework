@@ -1,0 +1,15 @@
+# Keep GitHub's language panel focused on the four implementation languages.
+# Supporting markup, configuration, documentation, and data remain in the repo
+# but do not contribute to the language percentages.
+* linguist-detectable=false
+**/* linguist-detectable=false
+
+**/*.cpp linguist-detectable=true
+**/*.hpp linguist-detectable=true
+**/*.cu linguist-detectable=true
+**/*.cuh linguist-detectable=true
+**/*.ts linguist-detectable=true
+**/*.tsx linguist-detectable=true
+
+# Python is still represented, but only by the package's public export surface.
+ckptplan/__init__.py linguist-detectable=true

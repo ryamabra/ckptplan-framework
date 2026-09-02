@@ -1,3 +1,4 @@
+const dashboardStyles = String.raw`
 :root {
   color: #eef2f0;
   background: #090c10;
@@ -97,3 +98,9 @@ footer { display: flex; justify-content: space-between; padding: 24px 0 0; color
   .bar-row { grid-template-columns: 1fr; gap: 7px; }
   .chart-panel, .table-panel { padding: 20px; }
 }
+`;
+
+const styleElement = document.createElement("style");
+styleElement.dataset.ckptplan = "dashboard";
+styleElement.textContent = dashboardStyles;
+document.head.append(styleElement);
