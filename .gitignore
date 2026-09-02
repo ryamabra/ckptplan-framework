@@ -24,3 +24,8 @@ graphify-out/.vocab.txt
 graphify-out/graph.html
 graphify-out/reflections/
 graphify-out/20??-??-??/
+
+# Native and dashboard build products
+native/build/
+dashboard/node_modules/
+dashboard/dist/

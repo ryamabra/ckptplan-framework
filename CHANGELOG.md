@@ -28,6 +28,9 @@ sign-off on the open questions below.
   reference.
 - `ckptplan.reporting.compare_results` and `benchmarks/report.py` for
   re-reporting saved benchmark JSON locally without touching a GPU.
+- A dependency-free C++20 planning core with parity tests, optional CUDA
+  activation-accounting primitives, and a local React/TypeScript benchmark
+  explorer that accepts every saved-result schema used by the repository.
 - Package metadata for release: MIT `LICENSE`, PyPI classifiers, project URLs,
   and author/maintainer fields (see "Release notes" below for decisions made
   without explicit sign-off).

@@ -27,15 +27,18 @@ the metadata decisions still awaiting the maintainer's confirmation.
 
 ## Built with
 
-- **Python** — public library, planning algorithms, profiling, and benchmarks
+- **Python** — public PyTorch API, model profiling, application, and benchmarks
 - **PyTorch** — tensor execution, autograd, and gradient checkpointing
-- **CUDA** — GPU activation-memory measurement and A10G validation
+- **C++20** — standalone deterministic planning core for native integrations
+- **CUDA** — device-side activation accounting plus A10G validation
+- **React + TypeScript** — local benchmark explorer for saved result JSON
 - **Modal** — reproducible cloud GPU benchmark workflows
 - **pytest** — CPU and correctness test suite
 - **GitHub Actions** — Python/PyTorch compatibility CI
 
-GitHub reports the repository as Python-only because CUDA is accessed through
-PyTorch rather than through standalone `.cu` source files.
+GitHub reports React source as **TypeScript** in its language bar. The native and
+dashboard components are real, independently buildable tools; repository
+language statistics are not altered with Linguist overrides.
 
 ## Install
 
@@ -263,7 +266,47 @@ pip install -e ".[dev]"
 pytest -q
 ```
 
-CI runs the suite on CPU across Python 3.10/3.12 and PyTorch 2.5/2.13
+### Native C++ and CUDA
+
+The dependency-free C++20 core implements the same five planner strategies as
+the Python package. It is useful for embedding ckptplan's cost model in a native
+runtime without importing PyTorch:
+
+```bash
+cmake -S native -B native/build -DCMAKE_BUILD_TYPE=Release
+cmake --build native/build
+ctest --test-dir native/build --output-on-failure
+```
+
+CUDA support is opt-in because a CUDA toolkit and GPU are not available on
+normal GitHub-hosted runners:
+
+```bash
+cmake -S native -B native/build -DCKPTPLAN_ENABLE_CUDA=ON
+cmake --build native/build --target ckptplan_cuda_demo
+./native/build/ckptplan_cuda_demo
+```
+
+See [`native/README.md`](./native/README.md) for the API boundary and current
+integration status.
+
+### React benchmark dashboard
+
+The dashboard reads the repository's existing progressive, list, map, and
+legacy top-level benchmark JSON shapes locally in the browser. Files never
+leave the machine.
+
+```bash
+cd dashboard
+npm install
+npm run dev
+```
+
+Run `npm test` for schema normalization tests or `npm run build` for a static
+production bundle. See [`dashboard/README.md`](./dashboard/README.md).
+
+CI runs the Python suite on CPU across Python 3.10/3.12 and PyTorch 2.5/2.13,
+plus the C++ tests and React test/build jobs
 ([`.github/workflows/ci.yml`](./.github/workflows/ci.yml)). The GPU benchmarks
 under `benchmarks/` require Modal and an A10G and are run separately, never in
 CI.
