@@ -1,5 +1,20 @@
 # Project State
 
+## Maintenance — October 25, 2026
+
+Fixed the dynamic-programming scale guard to count the initial table row.
+Previously a one-block, two-column table allocated four cells even when the
+configured limit was two or three. The guard now checks the complete allocation
+and reports its actual cell count before allocating.
+
+Changed `ckptplan/planning/planner.py` and `tests/unit/test_planning.py`.
+Regression coverage checks limits below and exactly at the four-cell boundary;
+the two below-limit cases failed before the fix. Validation: all 166 Python
+tests passed on Python 3.12 / PyTorch 2.13.0 (CPU). No architecture changes;
+GPU behavior was not exercised for this pure planner change.
+Next maintenance task: review planner boundary handling for additional
+reproducible defects, then resume the existing benchmark validation work.
+
 ## Project
 
 Working name: `ckptplan`

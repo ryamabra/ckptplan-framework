@@ -264,9 +264,10 @@ def _dynamic_ids(
     if target <= 0:
         return set(), False, None
     target_units = math.ceil(target / bucket)
-    if len(eligible) * (target_units + 1) > guard:
+    table_cells = (len(eligible) + 1) * (target_units + 1)
+    if table_cells > guard:
         raise PlannerScaleError(
-            f"dynamic-programming table has {len(eligible) * (target_units + 1)} cells, "
+            f"dynamic-programming table has {table_cells} cells, "
             f"exceeding dp_scale_guard_cells={guard}; increase activation_bucket_bytes "
             "or use planner='greedy'"
         )

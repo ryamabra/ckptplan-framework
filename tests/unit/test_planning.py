@@ -195,6 +195,24 @@ def test_dp_scale_guard_and_timing_only_rejection() -> None:
         plan_checkpoints(_profiles([(10, 1)], timing_only=True), _blocks(1), target_kind="activation_budget_bytes", target_value=0, planner="greedy")
 
 
+@pytest.mark.parametrize("guard", [2, 3, 4])
+def test_dp_scale_guard_counts_initial_row(guard: int) -> None:
+    # One block and two savings columns allocate four cells, including row zero.
+    profiles = _profiles([(1, 1)])
+    blocks = _blocks(1)
+    kwargs = dict(
+        target_kind="activation_budget_bytes",
+        target_value=0,
+        activation_bucket_bytes=1,
+        dp_scale_guard_cells=guard,
+    )
+    if guard < 4:
+        with pytest.raises(PlannerScaleError, match="4 cells"):
+            plan_checkpoints(profiles, blocks, **kwargs)
+    else:
+        assert plan_checkpoints(profiles, blocks, **kwargs).feasible
+
+
 def test_profile_fingerprint_requires_matching_decisions() -> None:
     profiles = _profiles([(10, 1), (20, 1)])
     plan = plan_checkpoints(profiles, _blocks(2), target_kind="activation_budget_bytes", target_value=20, planner="checkpoint_all")
