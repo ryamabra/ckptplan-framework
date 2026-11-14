@@ -263,6 +263,9 @@ python benchmarks/report.py benchmarks/matrix_a10g_result.json
 
 ## Development
 
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for setup, component checks, and pull
+request guidance.
+
 ```bash
 pip install -e ".[dev]"
 pytest -q
