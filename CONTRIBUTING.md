@@ -52,6 +52,24 @@ npm test
 npm run build
 ```
 
+## Reporting saved results
+
+With the Python environment active, run this from the repository root:
+
+```bash
+python -m benchmarks.report benchmarks/matrix_a10g_result.json --reference no_checkpoint
+```
+
+This reads a saved artifact and prints a comparison table; it does not run a
+new GPU benchmark. `--reference` selects the configuration used for relative
+memory, latency, and throughput comparisons and defaults to `no_checkpoint`.
+Use a configuration name present in the artifact.
+
+The output distinguishes missing measurements (`n/r`) from values that do not
+apply (`—`). A throughput value marked `~` is derived from batch size and
+latency rather than measured independently. Preserve these distinctions when
+sharing results; a missing correctness result is not a passing check.
+
 ## Before opening a pull request
 
 - Run the checks relevant to the files you changed and state their results.
