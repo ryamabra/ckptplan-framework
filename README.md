@@ -258,8 +258,14 @@ bound on throughput overhead. Two things are worth stating plainly:
 `benchmarks/report.py` re-reports any saved benchmark JSON locally, for free:
 
 ```bash
-python benchmarks/report.py benchmarks/matrix_a10g_result.json
+python -m benchmarks.report benchmarks/matrix_a10g_result.json
 ```
+
+Run this from the repository root with your development environment active.
+The module invocation also works in an uninstalled checkout, where executing
+`benchmarks/report.py` directly may fail to import the sibling `ckptplan`
+package. See [Reporting saved results](./CONTRIBUTING.md#reporting-saved-results)
+for choosing the comparison reference and interpreting missing measurements.
 
 ## Development
 

@@ -1,5 +1,16 @@
 # Project State
 
+## Saved-result reporting documentation — November 14, 2026
+
+Changed the README report command to module execution from the repository root,
+which avoids the sibling-package import failure seen with direct script
+execution in the local checkout. Added reference selection and missing-value
+interpretation to CONTRIBUTING.md. Verified the documented command against
+benchmarks/matrix_a10g_result.json; it prints all five configuration rows.
+All 46 targeted reporting tests passed; git diff --check passed.
+No runtime or architecture changes. Next task remains triaging existing
+type-check failures before resuming benchmark validation.
+
 ## Contributor documentation — November 14, 2026
 
 Added CONTRIBUTING.md covering Python setup, component-specific checks, CPU vs
