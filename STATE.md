@@ -1,5 +1,13 @@
 # Project State
 
+## Maintenance — November 14, 2026
+
+Expanded dashboard setup documentation with the correct working directory,
+lockfile-based installation, Node.js requirements, and a saved-result example.
+Clarified that the dashboard displays results and does not run training.
+Validation: dashboard normalizer tests and production build. No runtime or
+architecture changes. Next task: document contributor setup and checks.
+
 ## Maintenance — October 25, 2026
 
 Fixed the dynamic-programming scale guard to count the initial table row.
