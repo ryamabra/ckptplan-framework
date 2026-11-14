@@ -1,5 +1,17 @@
 # Project State
 
+## Contributor documentation — November 14, 2026
+
+Added CONTRIBUTING.md covering Python setup, component-specific checks, CPU vs
+CUDA evidence, and focused pull requests; linked it from README.md. Commands
+were checked against pyproject.toml and CI. Dashboard tests/build passed in the
+preceding documentation change. The local Python suite initially had 165 passes
+and one example-import failure in the existing local environment, persisting
+after an editable reinstall. Local mypy reports 13 pre-existing errors in four source
+files; the preceding CI run also failed its mypy job. These documentation edits
+do not change runtime code or resolve those type errors.
+Next task: triage the existing type-check failures; then resume benchmark work.
+
 ## Maintenance — November 14, 2026
 
 Expanded dashboard setup documentation with the correct working directory,
