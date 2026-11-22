@@ -23,3 +23,7 @@ Run installation and tests through the same interpreter (`python -m pip` and `py
 ## CUDA is unavailable or inputs use another device
 
 The Python profiler supports CPU timing and CUDA activation measurement; do not assume another accelerator backend is interchangeable with CUDA. Its device and dtype arguments validate caller-owned data: they do not move or cast your model and inputs. Prepare both before profiling, and report the device, dtype, Python version, and PyTorch version if validation fails. See [device handling](../ARCHITECTURE.md#profiler).
+
+## The example does not complete all five stages
+
+After installing the checkout, run `python examples/end_to_end.py` from the repository root. The documented CPU path declares blocks and measures timing, then stops at planning with an explanatory error. That is not a CUDA memory benchmark. On CUDA the example can exercise all five stages. Compare the device printed by the example with the device you intended to use. See [the pipeline](../README.md#the-pipeline).
