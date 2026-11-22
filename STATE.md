@@ -1,5 +1,20 @@
 # Project State
 
+## Task-pointer reconciliation — November 22, 2026
+
+Updated the Current Task and Next After Current Task sections to match the latest
+maintenance notes and the completed implementation and A10G evidence recorded here.
+This prevents future sessions from treating completed application, profiling,
+reporting, and correctness work as pending implementation. Historical entries are
+retained as a chronological record; the task headings identify the active work.
+
+Changed file: STATE.md only. Verification: checked both task pointers against the
+November 14 maintenance notes and completed A10G sections; independent documentation
+review found no blocking issues. No runtime or architecture changes. Tests and
+historical type-check failures were not rerun; no new GPU evidence was collected.
+Current task: reproduce and triage type-check failures. Next: select a bounded
+benchmark-validation experiment after type checking passes.
+
 ## Saved-result reporting documentation — November 14, 2026
 
 Changed the README report command to module execution from the repository root,
@@ -186,12 +201,7 @@ real gradient comparison on an A10G is unknown and requires re-running
 
 ## Current Task
 
-The deterministic pure-planning `plan_checkpoints` slice, plan
-validation/application slice, CUDA profiling implementation slice, and the
-benchmark comparison reporting slice are complete, and saved runs can now be
-re-reported locally via `benchmarks/report.py`. CUDA execution still requires
-verification in the separate A10G workflow; an actual five-planner A10G matrix
-run under the expanded schema remains next.
+Triage the existing type-check failures recorded in the November 14 contributor-documentation session. Reproduce them on the current checkout, fix the affected annotations or code, and run mypy plus relevant CPU regression tests. The recorded 13 errors are historical evidence, not a fresh count.
 
 ## Completed (per-config process isolation for correctness) — WRITTEN, NOT RUN
 
@@ -1121,9 +1131,7 @@ The MVP must compare against:
 
 ## Next After Current Task
 
-**Proposed next slice:** implement plan application and validation using the
-shared execution helpers. CUDA activation measurement, reporting, and
-benchmarks remain deferred.
+After type checking passes, review the remaining benchmark-validation gaps against the committed artifacts and choose one bounded experiment. Plan application, CUDA profiling, reporting, and the boundary/five-planner A10G correctness re-runs are already implemented or recorded as completed in this document; do not repeat them as unfinished implementation tasks. Correctness comparisons remain unavailable at configurations where the no-checkpoint reference cannot execute, even in isolation.
 
 ## Completed (Revision 3.4 pure planning)
 
