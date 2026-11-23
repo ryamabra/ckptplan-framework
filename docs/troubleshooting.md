@@ -55,3 +55,7 @@ The profiler’s isolated per-block activation estimates are not an end-to-end p
 ## Checkpointing uses less memory but runs slower
 
 Checkpointing discards selected activations and recomputes them during backward execution. Extra latency is a tradeoff to measure, not by itself a correctness failure. Compare the same batch shape, dtype, and model with warm-up and repeated trials. Report memory and latency together; a larger feasible batch is a separate result from faster execution at the original batch size. See [measured scaling](../README.md#progressive-scaling-on-a10g).
+
+## A correctness field is null
+
+A missing or null correctness value is not a passing check. The `no_checkpoint` reference skips comparison against itself by design. A correctness check that cannot finish, including an OOM path, also cannot establish a pass. Read the correctness-check flag, verdict, error message, and OOM status together. See [verified evidence](../README.md#verified-evidence) for the configurations actually validated.
