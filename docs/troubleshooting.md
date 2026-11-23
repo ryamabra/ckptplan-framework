@@ -31,3 +31,7 @@ After installing the checkout, run `python examples/end_to_end.py` from the repo
 ## Block declaration rejects a model
 
 Declare blocks in execution order with unique, non-empty identifiers. Blocks must belong to the model and represent disjoint module subtrees. Do not declare both a parent and its child as separate blocks, or repeat the same module under different identifiers. Choose one consistent level of granularity. Distinct blocks may share parameters, but shared registered buffers are rejected; changing a buffer to non-persistent does not remove that restriction. See [declaration evidence](../STATE.md#completed-revision-32-declaration-boundary-hardening).
+
+## A block is excluded from checkpointing
+
+Inspect the profile’s `exclusion_reason` before changing the plan. Stochastic behavior, state changes that would be repeated during recomputation, or an absence of differentiable output can make a block ineligible. Do not hand-edit its eligibility flag to force selection. Changing model behavior to make a block eligible may change the training problem; profile and validate the intended model again. See [eligibility](../README.md#blocks-that-cannot-be-checkpointed).
