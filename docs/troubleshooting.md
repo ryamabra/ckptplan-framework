@@ -47,3 +47,7 @@ Validation re-derives execution signatures and checks the model fingerprint. If 
 ## Does applying a plan replace the parameters?
 
 `apply_plan` reuses the original module instances and preserves parameter identity, so existing optimizers keep referring to those parameters. The returned object is a sequential execution container for the declared blocks, not a transparent wrapper for arbitrary model control flow. Use that container for the planned execution path and verify that the declared order represents the intended computation. See [API notes](../README.md#what-each-step-does).
+
+## Predicted savings do not match measured savings
+
+The profiler’s isolated per-block activation estimates are not an end-to-end peak-memory prediction. Summing them does not account for all allocation reuse, tensor lifetimes, or fixed training memory. Report both the estimates and measured peaks, with the workload, instead of adjusting one to force agreement. Small peak savings can coexist with correctly applied checkpointing. See [measurement limits](../README.md#measured-and-not-claimed).
