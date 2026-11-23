@@ -73,3 +73,7 @@ python -m benchmarks.report benchmarks/matrix_a10g_result.json --reference no_ch
 ```
 
 Directly executing `benchmarks/report.py` may omit the sibling package from the import path in an uninstalled checkout. This command reads saved results; it does not start a GPU job or create new benchmark evidence. See [reporting instructions](../CONTRIBUTING.md#reporting-saved-results).
+
+## Relative comparisons are missing
+
+Choose a `--reference` name present in the saved artifact. A missing reference is different from a present reference that OOMed: the latter cannot provide valid relative peak-memory or latency comparisons. Zero reference denominators also make affected ratios undefined. Retain absolute measurements and the reference identity when sharing a table; do not convert undefined ratios to zero. See [comparison semantics](../STATE.md#completed-benchmark-comparison-reporting-slice).
