@@ -27,3 +27,7 @@ The Python profiler supports CPU timing and CUDA activation measurement; do not 
 ## The example does not complete all five stages
 
 After installing the checkout, run `python examples/end_to_end.py` from the repository root. The documented CPU path declares blocks and measures timing, then stops at planning with an explanatory error. That is not a CUDA memory benchmark. On CUDA the example can exercise all five stages. Compare the device printed by the example with the device you intended to use. See [the pipeline](../README.md#the-pipeline).
+
+## Block declaration rejects a model
+
+Declare blocks in execution order with unique, non-empty identifiers. Blocks must belong to the model and represent disjoint module subtrees. Do not declare both a parent and its child as separate blocks, or repeat the same module under different identifiers. Choose one consistent level of granularity. Distinct blocks may share parameters, but shared registered buffers are rejected; changing a buffer to non-persistent does not remove that restriction. See [declaration evidence](../STATE.md#completed-revision-32-declaration-boundary-hardening).
