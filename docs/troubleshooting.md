@@ -97,3 +97,7 @@ ctest --test-dir native/build --output-on-failure
 ```
 
 CUDA support is opt-in and requires its own toolchain and hardware. Do not interpret a successful native CPU build as CUDA validation or Python integration evidence. See [native documentation](../native/README.md) before enabling the optional path.
+
+## Preparing a reproducible bug report
+
+Include the commit or installed version, Python/PyTorch versions, device and dtype, model/block structure, input shapes, planner and budget, exact command, full traceback, and expected versus observed behavior. Reduce the workload to the smallest example that still fails. For benchmark discrepancies, include the saved artifact, reference name, warm-up/trial settings, and correctness/OOM fields. Remove credentials and private data before posting. State which checks you actually ran; do not present CPU checks as GPU evidence. See [contribution guidance](../CONTRIBUTING.md).
