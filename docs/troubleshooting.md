@@ -43,3 +43,7 @@ Use `no_checkpoint` as the baseline and `checkpoint_all` to inspect the all-elig
 ## A saved plan no longer validates
 
 Validation re-derives execution signatures and checks the model fingerprint. If block order, model structure, input shape, device, or dtype changed, revisit the declaration and profiling steps rather than bypassing validation. A plan that worked for one workload is not automatically valid for another. Keep the workload description alongside saved plans. See [plan application](../ARCHITECTURE.md#plan-application).
+
+## Does applying a plan replace the parameters?
+
+`apply_plan` reuses the original module instances and preserves parameter identity, so existing optimizers keep referring to those parameters. The returned object is a sequential execution container for the declared blocks, not a transparent wrapper for arbitrary model control flow. Use that container for the planned execution path and verify that the declared order represents the intended computation. See [API notes](../README.md#what-each-step-does).
