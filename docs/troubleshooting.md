@@ -77,3 +77,7 @@ Directly executing `benchmarks/report.py` may omit the sibling package from the 
 ## Relative comparisons are missing
 
 Choose a `--reference` name present in the saved artifact. A missing reference is different from a present reference that OOMed: the latter cannot provide valid relative peak-memory or latency comparisons. Zero reference denominators also make affected ratios undefined. Retain absolute measurements and the reference identity when sharing a table; do not convert undefined ratios to zero. See [comparison semantics](../STATE.md#completed-benchmark-comparison-reporting-slice).
+
+## What do n/r, an em dash, and a tilde mean?
+
+In saved-report output, `n/r` means the needed measurement was not recorded. `—` means the value is unavailable or undefined for that row. A throughput value prefixed with `~` is derived from batch size and latency rather than independently measured. Preserve these markers when copying tables. When batch size is constant, derived throughput is another expression of latency, not independent performance evidence. See [saved-result reporting](../CONTRIBUTING.md#reporting-saved-results).
