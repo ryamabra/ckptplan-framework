@@ -51,3 +51,7 @@ Validation re-derives execution signatures and checks the model fingerprint. If 
 ## Predicted savings do not match measured savings
 
 The profiler’s isolated per-block activation estimates are not an end-to-end peak-memory prediction. Summing them does not account for all allocation reuse, tensor lifetimes, or fixed training memory. Report both the estimates and measured peaks, with the workload, instead of adjusting one to force agreement. Small peak savings can coexist with correctly applied checkpointing. See [measurement limits](../README.md#measured-and-not-claimed).
+
+## Checkpointing uses less memory but runs slower
+
+Checkpointing discards selected activations and recomputes them during backward execution. Extra latency is a tradeoff to measure, not by itself a correctness failure. Compare the same batch shape, dtype, and model with warm-up and repeated trials. Report memory and latency together; a larger feasible batch is a separate result from faster execution at the original batch size. See [measured scaling](../README.md#progressive-scaling-on-a10g).
