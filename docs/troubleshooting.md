@@ -59,3 +59,7 @@ Checkpointing discards selected activations and recomputes them during backward 
 ## A correctness field is null
 
 A missing or null correctness value is not a passing check. The `no_checkpoint` reference skips comparison against itself by design. A correctness check that cannot finish, including an OOM path, also cannot establish a pass. Read the correctness-check flag, verdict, error message, and OOM status together. See [verified evidence](../README.md#verified-evidence) for the configurations actually validated.
+
+## The checkpointed model fits but the reference does not
+
+If the no-checkpoint reference cannot execute even in isolation, there is no gradient comparison at that configuration. A successful checkpointed run establishes feasibility, not equivalence to an unexecuted reference. Report the missing comparison explicitly and validate correctness at a fitting workload separately; do not transfer that verdict to the OOM boundary. See [the documented limitation](../README.md#verified-evidence).
