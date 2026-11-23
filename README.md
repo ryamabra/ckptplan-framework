@@ -322,6 +322,13 @@ plus the C++ tests and React test/build jobs
 under `benchmarks/` require Modal and an A10G and are run separately, never in
 CI.
 
+## Troubleshooting
+
+See the [troubleshooting guide](docs/troubleshooting.md) for installation and device
+issues, block declarations, plan validation, memory-budget interpretation, and
+reading saved benchmark results. It also covers dashboard/native setup and the
+evidence to include in a bug report.
+
 ## Documents
 
 - [`MVP_SPEC.md`](./MVP_SPEC.md) — accepted v0.1 design (Revision 3.4).
