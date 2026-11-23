@@ -35,3 +35,7 @@ Inspect the profile’s `exclusion_reason` before changing the plan. Stochastic 
 ## A plan meets its budget but training still runs out of memory
 
 An activation budget is not a total GPU-memory limit. Parameters, gradients, other training state, tensor lifetimes, and allocator behavior also affect the measured peak. Do not set an activation budget equal to the device’s full capacity and interpret it as an OOM guarantee. Benchmark the complete workload and retain the measured peak and OOM fields. See [system inputs](../ARCHITECTURE.md#system-boundary).
+
+## Choosing a planner for a comparison
+
+Use `no_checkpoint` as the baseline and `checkpoint_all` to inspect the all-eligible-blocks tradeoff. `uniform`, `greedy`, and `dynamic_programming` provide alternative selections. Keep the workload and target consistent when comparing them. Deterministic planning means identical inputs produce an identical plan; separately measured profiles can differ and therefore produce different selections. Save the selected block IDs with benchmark evidence. See [planner overview](../README.md#what-each-step-does).
