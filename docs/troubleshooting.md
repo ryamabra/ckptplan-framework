@@ -63,3 +63,13 @@ A missing or null correctness value is not a passing check. The `no_checkpoint` 
 ## The checkpointed model fits but the reference does not
 
 If the no-checkpoint reference cannot execute even in isolation, there is no gradient comparison at that configuration. A successful checkpointed run establishes feasibility, not equivalence to an unexecuted reference. Report the missing comparison explicitly and validate correctness at a fitting workload separately; do not transfer that verdict to the OOM boundary. See [the documented limitation](../README.md#verified-evidence).
+
+## The saved-result report cannot import ckptplan
+
+Activate the development environment and run the module from the repository root:
+
+```sh
+python -m benchmarks.report benchmarks/matrix_a10g_result.json --reference no_checkpoint
+```
+
+Directly executing `benchmarks/report.py` may omit the sibling package from the import path in an uninstalled checkout. This command reads saved results; it does not start a GPU job or create new benchmark evidence. See [reporting instructions](../CONTRIBUTING.md#reporting-saved-results).
