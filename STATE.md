@@ -1,5 +1,20 @@
 # Project State
 
+## Troubleshooting guide — November 22, 2026
+
+Added docs/troubleshooting.md with 21 symptom-based topics spanning installation,
+CPU/CUDA behavior, block eligibility, plan compatibility, memory estimates,
+correctness evidence, saved reports, dashboard/native setup, and bug reports.
+README.md now links to the guide. Each topic was committed separately as requested.
+
+Verification: reviewed the guidance against README.md, CONTRIBUTING.md,
+ARCHITECTURE.md, and this document; an independent documentation review checked
+the main conceptual distinctions. Inspected the rendered guide and README link.
+Examples are documented commands, not newly executed test results. No runtime
+code changed, no tests or benchmarks were rerun, and existing type-check failures
+remain unresolved. Current task remains reproducing and triaging those failures;
+next is selecting a bounded benchmark-validation experiment once they pass.
+
 ## Task-pointer reconciliation — November 22, 2026
 
 Updated the Current Task and Next After Current Task sections to match the latest
