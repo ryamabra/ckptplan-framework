@@ -39,3 +39,7 @@ An activation budget is not a total GPU-memory limit. Parameters, gradients, oth
 ## Choosing a planner for a comparison
 
 Use `no_checkpoint` as the baseline and `checkpoint_all` to inspect the all-eligible-blocks tradeoff. `uniform`, `greedy`, and `dynamic_programming` provide alternative selections. Keep the workload and target consistent when comparing them. Deterministic planning means identical inputs produce an identical plan; separately measured profiles can differ and therefore produce different selections. Save the selected block IDs with benchmark evidence. See [planner overview](../README.md#what-each-step-does).
+
+## A saved plan no longer validates
+
+Validation re-derives execution signatures and checks the model fingerprint. If block order, model structure, input shape, device, or dtype changed, revisit the declaration and profiling steps rather than bypassing validation. A plan that worked for one workload is not automatically valid for another. Keep the workload description alongside saved plans. See [plan application](../ARCHITECTURE.md#plan-application).
