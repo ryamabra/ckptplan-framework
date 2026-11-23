@@ -81,3 +81,7 @@ Choose a `--reference` name present in the saved artifact. A missing reference i
 ## What do n/r, an em dash, and a tilde mean?
 
 In saved-report output, `n/r` means the needed measurement was not recorded. `—` means the value is unavailable or undefined for that row. A throughput value prefixed with `~` is derived from batch size and latency rather than independently measured. Preserve these markers when copying tables. When batch size is constant, derived throughput is another expression of latency, not independent performance evidence. See [saved-result reporting](../CONTRIBUTING.md#reporting-saved-results).
+
+## The dashboard is not producing new benchmark results
+
+The dashboard displays saved JSON; it does not run training or GPU profiling. From `dashboard/`, use `npm ci` and `npm run dev`, then load a saved artifact. For dashboard changes, run `npm test` and `npm run build` there. A displayed result retains the hardware and workload limitations of its source artifact. See [dashboard documentation](../dashboard/README.md) for supported input shapes and setup requirements.
