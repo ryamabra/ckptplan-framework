@@ -85,3 +85,15 @@ In saved-report output, `n/r` means the needed measurement was not recorded. `â€
 ## The dashboard is not producing new benchmark results
 
 The dashboard displays saved JSON; it does not run training or GPU profiling. From `dashboard/`, use `npm ci` and `npm run dev`, then load a saved artifact. For dashboard changes, run `npm test` and `npm run build` there. A displayed result retains the hardware and workload limitations of its source artifact. See [dashboard documentation](../dashboard/README.md) for supported input shapes and setup requirements.
+
+## Native build fails without CUDA
+
+The default native C++20 planner build does not require CUDA:
+
+```sh
+cmake -S native -B native/build -DCMAKE_BUILD_TYPE=Release
+cmake --build native/build
+ctest --test-dir native/build --output-on-failure
+```
+
+CUDA support is opt-in and requires its own toolchain and hardware. Do not interpret a successful native CPU build as CUDA validation or Python integration evidence. See [native documentation](../native/README.md) before enabling the optional path.
